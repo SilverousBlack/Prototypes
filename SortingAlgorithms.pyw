@@ -1,5 +1,5 @@
 """
-Searching ALgorithms Prototypes Library
+Prototype ALgorithms Core Prototypes Library
 (c) Silverous Black, 2020
 
 License(s): MIT Licence

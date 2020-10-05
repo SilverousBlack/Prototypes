@@ -1,35 +1,51 @@
 """
-Prototype Algorithms Core Library
+Prototype ALgorithms Core Prototypes Library
 (c) Silverous Black, 2020
 
-Licence(s): MIT
-Goals:
-    * Create a enumeration classication class for:
-        > Buffer Type
-        > Container Type [Linear, Poly]
-        > Algorithm Type
-    * 
+License(s): MIT Licence
+
+Notice: The distribution, ownership, reproduction and use of this library is subject to the above stated license.
+
+
 """
 
-from enum import Enum
+from collections import deque
 
-@Enum.unique
-class BufferType(Enum):
-    Linear = 0 
-    Circular = 1
-    Reverse = 2
-    ReverseCircular = 4
-    Polyspace = 5
+class Stack(object):
+    content: deque
+    
+    def __init__(self, other = None):
+        if other == None:
+            self.content = deque()
+        else:
+            self.content = deque(other)        
 
-class CommonContainer():
-    __size: int
-    __bufferform: BufferType
-    __buffer: []
+    def push(self, obj):
+        self.content.append(obj)
+        return self
+
+    def pop(self):
+        return self.content.pop()
+
+    def peek(self):
+        return self.content[len(self.content) - 1]
+
+    def swap(self):
+        a = self.pop()
+        b = self.pop()
+        self.push(a)
+        self.push(b)
+        return self
     
-    def __init__(self, size: int = 0, bufferform: BufferType = Polyspace):
-        self.__size = size
-        self.__bufferform = bufferform
-        self.__buffer = [] * self.__size
-    
-    def access(self, index, range = 0):
-        
+    def duplicate(self):
+        a = self.pop()
+        self.push(a)
+        self.push(a)
+        return self
+
+    def rotate(self, rangerot):
+        if rangerot > len(self.content):
+            raise IndexError
+        else:
+            self.content.rotate(rangerot)
+        return self
