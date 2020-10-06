@@ -9,16 +9,25 @@ Notice: The distribution, ownership, reproduction and use of this library is sub
 
 """
 
-from collections import deque
+from queue import *
+
+def util_comparator_fw(left, right):
+    return left < right
+
+def util_comparator_bw(left, right):
+    return left > right
+
+def util_comparator_eq(left, right):
+    return left == right
 
 class Stack(object):
-    content: deque
+    content: Queue
     
     def __init__(self, other = None):
         if other == None:
-            self.content = deque()
+            self.content = Queue()
         else:
-            self.content = deque(other)        
+            self.content = Queue(other)        
 
     def push(self, obj):
         self.content.append(obj)

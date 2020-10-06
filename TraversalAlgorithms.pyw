@@ -1,5 +1,5 @@
 """
-Searching ALgorithms Prototypes Library
+Traversal ALgorithms Prototypes Library
 (c) Silverous Black, 2020
 
 License(s): MIT Licence
@@ -9,4 +9,9 @@ Notice: The distribution, ownership, reproduction and use of this library is sub
 
 """
 from PrototypeCore import *
- 
+
+def BreadthFirstTraversal(target, sourcenode, func, *args):
+    pass
+
+target = []
+BreadthFirstTraversal(target, 2, lambda a : print(a))
