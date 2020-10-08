@@ -28,7 +28,6 @@ def _util_eps_partition(target, offset, size, compfunc):
     target[aoff] = pivot
     target[(offset + size) - 1] = anchr
     return aoff
-    
 
 def ExchangePartitionSort(target, offset, size, compfunc):
     if ((offset + size) > offset):

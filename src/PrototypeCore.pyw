@@ -11,6 +11,7 @@ Notice: The distribution, ownership, reproduction and use of this library is sub
 
 from queue import *
 from Core_Stack import *
+from Core_Tree import *
 
 def util_comparator_fw(left, right):
     return left < right
@@ -20,3 +21,7 @@ def util_comparator_bw(left, right):
 
 def util_comparator_eq(left, right):
     return left == right
+
+is_even = lambda n : not (n & 1)
+
+is_odd = lambda n : (n & 1)
