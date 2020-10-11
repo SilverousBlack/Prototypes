@@ -21,6 +21,7 @@ Members:
     > set_uid (function) - sets the UID of the node
     > set_value (function) - sets the value of the node
     > attach_node (function) - attaches a sub node into the node
+    > size (function) - gives the size of the entire node network
 ----- ----- ----- ----- -----
 
 """
@@ -128,26 +129,38 @@ class TreeNode(CDSM):
         else:
             raise ValueError
         return self
+    
+    def size(self):
+        if len(self) > 0:
+            temp = 0
+            for i in self.__nodes:
+                temp += i.size()
+            return temp + 1
+        else:
+            return 1
 
 class Tree(CDSM):
     __root: TreeNode
     __count: int
-    
+    __loc: list
     
     def __do_uid(self, loc: list):
-        self.__root[loc].set_uid(self.count)
+        self.__count += 1
+        self.__root[loc].set_uid(self.__count)
     
     def __fix_init_uid(self):
+        mark = TreeNode(self)
+        level = 0
         loc = []
+        mark.set_value(False)
         self.__root.set_uid(self.__count)
-        self.__count += 1
+        mark.set_value(True)
         if len(self.__root) > 0:
-            loc.append(0)
-            
-        
+            pass
     
     def __init__(self, other):
         self.__count = 0
+        self.__loc = []
         if not isinstance(other, (Tree, TreeNode)):
             raise ValueError
         else:

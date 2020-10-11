@@ -15,3 +15,4 @@ Contains all prototype algorithms from:
 from PrototypeCore import *
 from SearchingAlgorithms import *
 from SortingAlgorithms import *
+import visualized as visual

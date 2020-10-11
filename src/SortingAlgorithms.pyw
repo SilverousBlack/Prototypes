@@ -1,5 +1,5 @@
 """
-Prototype ALgorithms Core Prototypes Library
+Prototype Algorithms Core Prototypes Library
 (c) Silverous Black, 2020
 
 License(s): MIT Licence
@@ -44,5 +44,5 @@ def QuickSort(target, compfunc):
     sz = len(target)
     if (sz == 0) or (sz == 1):
         return
-    else:
+    else:      
         ExchangePartitionSort(target, 0, sz, compfunc)
